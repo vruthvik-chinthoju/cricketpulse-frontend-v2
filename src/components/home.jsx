@@ -3,20 +3,9 @@ import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+
 
 export default function Home() {
-
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        const params = new URLSearchParams(window.location.search);
-        const code = params.get("code");
-
-        if (code) {
-            window.location.href = `/#/github-callback?code=${code}`;
-        }
-    }, []);
 
     const openAI = () => {
         document.querySelector(".chatbot-btn")?.click();

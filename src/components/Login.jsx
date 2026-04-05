@@ -14,20 +14,11 @@ function Login() {
     password: ""
   });
 
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const code = params.get("code");
-
-    if (code) {
-      window.location.href = `/#/github-callback?code=${code}`;
-    }
-  }, []);
 
   const githubLogin = () => {
     window.location.href =
-      "https://github.com/login/oauth/authorize?client_id=Ov23ligSAFksea0QwijE&scope=user:email&redirect_uri=https://vruthvik-chinthoju.github.io/cricketpulse-frontend-v2/";
+      "https://github.com/login/oauth/authorize?client_id=Ov23ligSAFksea0QwijE&scope=user:email&redirect_uri=https://vruthvik-chinthoju.github.io/cricketpulse-frontend-v2/#/github-callback";
   };
-
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };

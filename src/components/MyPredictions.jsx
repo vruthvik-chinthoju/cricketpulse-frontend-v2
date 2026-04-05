@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./css/MyPredictions.css";
-import { toast } from "react-toastify";
+
 
 function MyPredictions() {
     const [data, setData] = useState([]);

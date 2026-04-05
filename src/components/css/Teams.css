@@ -73,3 +73,9 @@ input {
   }
 
 }
+@media screen and (max-width:370px){
+  .teams-page .team-card{
+    max-width: 330px;
+  }
+
+}

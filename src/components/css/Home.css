@@ -797,3 +797,40 @@ section {
     margin-bottom: 15px;
   }
 }
+
+
+@media screen and (max-width:380px){
+  .hero{
+    overflow-x: hidden;
+  }
+  .about .abt{
+    width: 320px;
+    margin-bottom: 40px;
+  }
+  .ai-container .ai-content{
+    width: 310px;
+  }
+
+  .how {
+    padding: 40px 15px;
+    gap: 20px;
+  }
+
+  .how-grid {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 15px; 
+    width: 100%;
+  }
+
+  .step {
+    width: 100%; 
+    height: auto; 
+    padding: 50px;
+  }
+
+  .step img {
+    height: 120px;
+    margin-bottom: 15px;
+  }
+}

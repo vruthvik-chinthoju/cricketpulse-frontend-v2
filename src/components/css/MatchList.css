@@ -225,18 +225,7 @@ button:hover {
     transform: scale(1.1);
 }
 
-@media screen and (max-width:800px){
-    .all{
-        width: 90%;
-    }
-    button{
-        padding: 5px;
-        border-radius: 5px;
-    }
-    .countdown b{
-        font-size: 15px;
-    }
-}
+
 
 @media screen and (max-width:420px){
     .all .predict{
@@ -284,4 +273,62 @@ button:hover {
 
     }
 }
+@media screen and (max-width:420px){
+    .all .predict{
+        width: 270px;
+    }
+    .match .all{
+        width: 350px;
+        gap: 15px;
+    }
+    .teams{
+        padding-bottom: 30px;
+        border-bottom: 1px solid black;
+    }
+    .team img{
+        width: 60px;
+    }
+    .teams .team span{
+        font-size: 15px;
+    }
+    .all p{
+        font-size: 14px;
+    }
+    .all .predict{
+        padding: 10px;
+        font-size: 10px;
+        text-align: center;   
+    }
+    .buttons button{
+        padding:10px;
+        font-size:10px;
+        letter-spacing: 0px;
+    }
+    .filter-buttons{
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+    .filter-buttons button{
+        padding: 10px;
+        width: 150px;
+    }
+    .match{
+        padding: 10px;
+        gap: 24px;
 
+    }
+}
+
+@media screen and (max-width:380px){
+    .match .all{
+        width:330px;
+    }
+    button{
+        padding: 5px;
+        border-radius: 5px;
+    }
+    .countdown b{
+        font-size: 15px;
+    }
+}

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function PredictButton({ match, disabled, predictions, setPredictions }) {
 
@@ -20,7 +21,7 @@ function PredictButton({ match, disabled, predictions, setPredictions }) {
     const token = localStorage.getItem("access");
 
     if (!token) {
-      alert("Please login first ⚠️");
+      toast.error("Please login first ⚠️");
       navigate("/login");
       return;
     }
@@ -42,11 +43,11 @@ function PredictButton({ match, disabled, predictions, setPredictions }) {
 
       if (!res.ok) {
         const data = await res.json();
-        alert(data.error || "Error");
+        toast.error(data.error || "Error");
         return;
       }
 
-      alert("Prediction submitted ✅");
+      toast.success("Prediction submitted ✅");
 
       setPredictions(prev => [
         ...prev,
