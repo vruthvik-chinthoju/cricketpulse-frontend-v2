@@ -1,23 +1,57 @@
-
-@font-face {
-    font-family: "rac";
-    src: url("/quartzo-font/QuartzoBold-W9lv.ttf") format("truetype");
+/* Full screen center */
+.main-box {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0f172a, #020617);
+  font-family: "Poppins", sans-serif;
 }
 
-.box{
-    background-color: grey;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.box h2{
-    font-family: "rac";
-    color: black;
-    text-align: center;
+/* Card */
+.box {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 40px 60px;
+  border-radius: 20px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 0.6s ease-in-out;
 }
 
-.main-box{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Heading */
+.box h2 {
+  color: #ffffff;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+/* Spinner */
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255, 255, 255, 0.2);
+  border-top: 5px solid #22c55e;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+/* Animation */
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

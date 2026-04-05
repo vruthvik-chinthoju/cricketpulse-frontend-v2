@@ -8,6 +8,21 @@ function GithubCallback() {
   const navigate = useNavigate();
   const API = import.meta.env.VITE_API_URL;
 
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code");
+
+    if (!code) {
+      const rootParams = new URLSearchParams(window.location.search);
+      const rootCode = rootParams.get("code");
+
+      if (rootCode) {
+        window.location.href = `/#/github-callback?code=${rootCode}`;
+      }
+    }
+  }, []);
+
   useEffect(() => {
 
     const fullUrl = window.location.href;
