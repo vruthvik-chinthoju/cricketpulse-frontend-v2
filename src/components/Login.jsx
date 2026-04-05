@@ -16,7 +16,7 @@ function Login() {
 
   const githubLogin = () => {
     window.location.href =
-      "https://github.com/login/oauth/authorize?client_id=Ov23ligSAFksea0QwijE&scope=user:email&redirect_uri=https://vruthvik-chinthoju.github.io/cricketpulse-frontend/#/github-callback";
+      "https://github.com/login/oauth/authorize?client_id=Ov23ligSAFksea0QwijE&scope=user:email&redirect_uri=https://vruthvik-chinthoju.github.io/cricketpulse-frontend-v2/";
   };
 
   const handleChange = (e) => {
@@ -41,7 +41,7 @@ function Login() {
   return (
     <div className="login-container">
       <div className="login-card">
-        
+
         <h1 className="login-title">Login</h1>
 
         <label className="login-label">Username</label>
@@ -90,7 +90,7 @@ function Login() {
           />
 
           <button className="github-button" onClick={githubLogin}>
-              <svg height="20" width="20" viewBox="0 0 16 16" fill="white">
+            <svg height="20" width="20" viewBox="0 0 16 16" fill="white">
               <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 
               6.53 5.47 7.59.4.07.55-.17.55-.38
               0-.19-.01-.82-.01-1.49-2.01.37-2.53
