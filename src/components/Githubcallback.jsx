@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-toastify";
 import "./css/githubcallback.css"
 
 function GithubCallback() {
@@ -22,20 +23,22 @@ function GithubCallback() {
           localStorage.setItem("access", res.data.access);
           localStorage.setItem("refresh", res.data.refresh);
 
-          alert("GitHub login successful ✅");
+          toast.success("GitHub login successful ✅");
 
           navigate("/");
         })
         .catch(err => {
           console.log(err);
-          alert("GitHub login failed ❌");
+          toast.error("GitHub login failed ❌");
         });
     }
   }, []);
 
   return (
-    <div className="box">
-      <h2>Logging in With Git hub</h2>
+    <div className="main-box">
+      <div className="box">
+        <h2>Logging in With Git hub</h2>
+      </div>
     </div>
   )
 }
