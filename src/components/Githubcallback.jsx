@@ -2,62 +2,47 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
-import "./css/githubcallback.css"
+import "./css/githubcallback.css";
 
 function GithubCallback() {
   const navigate = useNavigate();
   const API = import.meta.env.VITE_API_URL;
-
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const code = params.get("code");
 
     if (!code) {
-      const rootParams = new URLSearchParams(window.location.search);
-      const rootCode = rootParams.get("code");
-
-      if (rootCode) {
-        window.location.href = `/#/github-callback?code=${rootCode}`;
-      }
+      toast.error("No GitHub code found ❌");
+      navigate("/login");
+      return;
     }
-  }, []);
 
-  useEffect(() => {
+    axios.post(`${API}/api/github-login/`, { code })
+      .then(res => {
+        localStorage.setItem("access", res.data.access);
+        localStorage.setItem("refresh", res.data.refresh);
 
-    const fullUrl = window.location.href;
+        toast.success("GitHub login successful ✅");
 
-    const code = fullUrl.split("code=")[1]?.split("#")[0];
+        navigate("/");
+      })
+      .catch(err => {
+        console.log(err);
+        toast.error("GitHub login failed ❌");
+        navigate("/login");
+      });
 
-    console.log("GITHUB CODE CLEAN:", code);
-
-
-    if (code) {
-      axios.post(`${API}/api/github-login/`, { code })
-        .then(res => {
-          localStorage.setItem("access", res.data.access);
-          localStorage.setItem("refresh", res.data.refresh);
-
-          toast.success("GitHub login successful ✅");
-
-          navigate("/");
-        })
-        .catch(err => {
-          console.log(err);
-          toast.error("GitHub login failed ❌");
-        });
-    }
   }, []);
 
   return (
     <div className="main-box">
       <div className="box">
-        <h2>Logging in With Git hub</h2>
+        <h2>Logging in with GitHub...</h2>
+        <div className="loader"></div>
       </div>
     </div>
-  )
+  );
 }
 
 export default GithubCallback;
-
-
