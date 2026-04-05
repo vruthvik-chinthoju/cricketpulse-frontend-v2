@@ -6,6 +6,10 @@ import { useEffect } from "react";
 
 export default function Home() {
 
+    const openAI = () => {
+        document.querySelector(".chatbot-btn")?.click();
+    };
+
     useEffect(() => {
         AOS.init({
             duration: 1200,
@@ -198,9 +202,7 @@ export default function Home() {
                             <input
                                 placeholder="Ask AI (e.g. Who will win today?)"
                             />
-                            <Link to="/ai-stats" className="ai-btn">
-                                Ask AI
-                            </Link>
+                            <button onClick={openAI} className="ai-btn">Ask AI</button>
                         </div>
 
                         {/* MINI FEATURES */}
